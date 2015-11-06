@@ -1,0 +1,6 @@
+.cproject
+.directory
+.project
+src/*.o
+src/*.dep
+colorDict
