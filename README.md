@@ -1,8 +1,7 @@
 ColorDiff
 ============
 
-Calculates the difference between two colors using the [CIEDE2000](https://en.wikipedia.org/wiki/Color_difference#CIEDE2000) color difference metric. I'm using the CIEDE2000 library taken from https://github.com/gfiumara/CIEDE2000 which is incorporated in this repository. The only significant part i wrote
-is the conversion from RGB to CIE*LAB colors.
+A Linux (and possibly Mac OSX) command line tool that calculates the difference between two colors using the [CIEDE2000](https://en.wikipedia.org/wiki/Color_difference#CIEDE2000) color difference metric. I'm using the CIEDE2000 library taken from https://github.com/gfiumara/CIEDE2000 which is incorporated in this repository. The only significant part i wrote is the conversion from RGB to CIE*LAB colors.
 
 ## Build
 
