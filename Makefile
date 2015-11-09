@@ -2,11 +2,11 @@ ifdef JAVASCRIPT
 CXX     := em++
 endif
 ifdef JAVASCRIPT
-TARGET  := colorDiff.html
+TARGET  := ciff.html
 else
-TARGET  := colorDiff 
+TARGET  := ciff 
 endif
-SRCS    := src/ColorDiff.cpp src/Color.cpp src/CIEDE2000.cpp
+SRCS    := src/Ciff.cpp src/Color.cpp src/CIEDE2000.cpp
 OBJS    := ${SRCS:.cpp=.o} 
 DEPS    := ${SRCS:.cpp=.dep} 
 
@@ -41,7 +41,7 @@ ${DEPS}: %.dep: %.cpp Makefile
 	${CXX} ${CXXFLAGS} -MM $< > $@ 
 
 clean:
-	rm -f src/*~ src/*.o src/*.dep ${TARGET} colorDiff.js colorDiff.html
+	rm -f src/*~ src/*.o src/*.dep ${TARGET} ciff.js ciff.html
 
 distclean: clean
 

@@ -1,5 +1,5 @@
 /*
- * ColorDiff
+ * Ciff
  * Copyright (C) 2015 Amir Hassan <amir@viel-zu.org>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -26,8 +26,8 @@ int main(int argc, char** argv) {
   using namespace kallaballa;
 
   if (argc != 3) {
-    std::cerr << "Usage: colorDiff <24bit hex color> <24bit hex color>" << std::endl;
-    std::cerr << "Example: colorDiff ffffff 000000" << std::endl;
+    std::cerr << "Usage: ciff <24bit hex color> <24bit hex color>" << std::endl;
+    std::cerr << "Example: ciff ffffff 000000" << std::endl;
     return 1;
   }
 
