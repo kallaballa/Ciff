@@ -21,6 +21,22 @@
 #include "cstdlib"
 #include <iostream>
 #include <cstdint>
+#include <limits>
+
+static long parse24bitHexRGB(const char *str) {
+    errno = 0;
+    char *temp;
+    long val = strtol(str, &temp, 16);
+
+    if (std::string(str).length() != 6 || temp == str ||
+        *temp != '\0' ||
+        ((val == std::numeric_limits<long>().min() || val == std::numeric_limits<long>().max()) && errno == ERANGE)) {
+         std::cerr << "'" << str << "' is not a 24bit hexadecimal value." << std::endl;
+         std::cerr << "For example white is represented by the following string ffffff" << std::endl;
+         exit(1);
+    }
+    return val;
+}
 
 int main(int argc, char** argv) {
   using namespace kallaballa;
@@ -31,8 +47,8 @@ int main(int argc, char** argv) {
     return 1;
   }
 
-  RGBColor a = strtol(argv[1], NULL, 16);
-  RGBColor b = strtol(argv[2], NULL, 16);
+  RGBColor a = parse24bitHexRGB(argv[1]);
+  RGBColor b = parse24bitHexRGB(argv[2]);
 
   std::cout << ciede2000_distance(a, b) << std::endl;
 }
