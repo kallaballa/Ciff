@@ -22,6 +22,7 @@
 #include <iostream>
 #include <cstdint>
 #include <limits>
+#include <string>
 
 static long parse24bitHexRGB(const char *str) {
     errno = 0;
@@ -32,7 +33,7 @@ static long parse24bitHexRGB(const char *str) {
         *temp != '\0' ||
         ((val == std::numeric_limits<long>().min() || val == std::numeric_limits<long>().max()) && errno == ERANGE)) {
          std::cerr << "'" << str << "' is not a 24bit hexadecimal value." << std::endl;
-         std::cerr << "For example white is represented by the following string ffffff" << std::endl;
+         std::cerr << "See 'ciff -h' for the correct format." << std::endl;
          exit(1);
     }
     return val;
@@ -41,7 +42,7 @@ static long parse24bitHexRGB(const char *str) {
 int main(int argc, char** argv) {
   using namespace kallaballa;
 
-  if (argc != 3) {
+  if (argc != 3 || std::string(argv[1]) == std::string("-h") || std::string(argv[1]) == std::string("--help")) {
     std::cerr << "Usage: ciff <24bit hex color> <24bit hex color>" << std::endl;
     std::cerr << "Example: ciff ffffff 000000" << std::endl;
     return 1;
